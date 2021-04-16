@@ -3493,3 +3493,7 @@
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp;
 }
+
+#pictureButtonDiv {
+  margin-right: 20px;
+}

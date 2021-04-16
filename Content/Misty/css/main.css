@@ -44,12 +44,12 @@ img.navbar-brand {
 }
 
 
-#show-javascript, #export-session, #abort-script, #run-script, #browse-files, #help {
+#show-javascript, #export-session, #abort-script, #run-script, #browse-files, #help, #display-picture-button {
 	text-decoration:none;
 	color: lightgray;
 }
 
-#show-javascript:hover, #export-session:hover, #abort-script:hover, #run-script:hover, #browse-files:hover, #help:hover {
+#show-javascript:hover, #export-session:hover, #abort-script:hover, #run-script:hover, #browse-files:hover, #help:hover, #display-picture-button:hover {
 	color: whitesmoke;
 }
 
