@@ -1,5 +1,21 @@
-﻿
+﻿/**
+ * -----------------------------------------------------------------------------------------------
+ * misty_ajax.js
+ * This file sends POST, GET, and DELETE requests to the robot. 
+ * Revised April 2020 by Matthew Hageman, Caden Kulp and Caleb Richardson (added comments throughout)
+ * -----------------------------------------------------------------------------------------------
+ */
 
+/**
+ * sendPostRequestToRobot
+ * Sends a request to upload data to Misty, change system settings, or make Misty do something
+ * @param {String} endpoint The API endpoint the command is being sent to
+ * @param {String} ip The ip address of the robot being connected to 
+ * @param {Object} payload The command being delivered to the robot
+ * @param {function} callback The callback function for the request
+ * @param {String} dataType Specifies the content type for the post request
+ * @private
+ */
 function sendPostRequestToRobot(endpoint, ip, payload, callback, dataType = "application/json") {
 
 	var url = "http://" + ip + "/api/" + endpoint;
@@ -45,7 +61,14 @@ function sendPostRequestToRobot(endpoint, ip, payload, callback, dataType = "app
 	});
 }
 
-
+/**
+ * sendGetRequestToRobot
+ * Sends a request to Misty obtain a system or user uploaded file stored on Misty
+ * @param {String} endpoint The API endpoint the command is being sent to
+ * @param {String} ip The ip address of the robot being connected to 
+ * @param {function} callback The callback function for the request
+ * @private
+ */
 function sendGetRequestToRobot(endpoint, ip, callback) {
 
 	var url = "http://" + ip + ":80/api/" + endpoint;
@@ -53,7 +76,7 @@ function sendGetRequestToRobot(endpoint, ip, callback) {
 	if (endpoint.includes('help')) {
 
 		if (callback) {
-			getHelp(endpoint, ip, callback);;
+			getHelp(endpoint, ip, callback);
 		} else {
 			getHelp(endpoint, ip);
 		}
@@ -99,6 +122,14 @@ function sendGetRequestToRobot(endpoint, ip, callback) {
 	}
 }
 
+/**
+ * sendDeleteRequestToRobot
+ * Sends a request to Misty to uninstall skills, delete on of Misty's image, audio, or video files, or clear system settings
+ * @param {String} endpoint The API endpoint the command is being sent to
+ * @param {String} ip The ip address of the robot being connected to 
+ * @param {function} callback The callback function for the request
+ * @private
+ */
 function sendDeleteRequestToRobot(endpoint, ip, callback) {
 
 	var url = "http://" + ip + ":80/api/" + endpoint;

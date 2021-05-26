@@ -1,4 +1,13 @@
-﻿var robot = {
+﻿/**
+ * -----------------------------------------------------------------------------------------------
+ * robot.js
+ * This file is an initial static version of the GetHelp API JSON file that the robot gets when it connects.
+ * The site utilizes this JSON file to get commands to populate the Blockly framework until it receives another JSON file from a Misty robot in GetHelp.
+ * Revised April 2020 by Matthew Hageman, Caden Kulp and Caleb Richardson (added support for speak block)
+ * -----------------------------------------------------------------------------------------------
+ */
+
+var robot = {
     "result": {
         "get": [
             {
@@ -1708,6 +1717,39 @@
                 },
                 "baseApiCommand": "PlayAudioClip",
                 "endpoint": "audio/play"
+            },
+            {
+                "apiCommand":{
+                    "apiCommandGroup": "Expression",
+                    "arguments":{
+                        "text":{
+                            "getValueType": "System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+                            "name": "Text",
+                            "ordinalNumber": 0,
+                            "value": null
+                        },
+                        "flush":{
+                            "getValueType": "System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+                            "name": "Flush",
+                            "ordinalNumber": 1,
+                            "value": false
+                        },
+                        "utteranceId":{
+                            "getValueType": "System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+                            "name": "UtteranceId",
+                            "ordinalNumber": 2,
+                            "value": null
+                        }
+                    },
+                    "category": "Alpha",
+                    "commandTimeout": 20000,
+                    "commandType": "Action",
+                    "id": "Speak",
+                    "name": "Speak",
+                    "resultType": "System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e"
+                },
+                "baseApiCommand": "Speak",
+                "endpoint": "tts/speak"
             },
             {
                 "apiCommand": {
